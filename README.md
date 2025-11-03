@@ -1,70 +1,155 @@
-# Getting Started with Create React App
+# React TextUtils — Fast Text Utilities for the Browser
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A lightweight, **React-based** text toolbox for quick edits and analysis — convert case,
+trim/normalize whitespace, copy to clipboard, and see **word/character counts** with an
+estimated **reading time**. Built for speed and accessibility.
 
-## Available Scripts
+[![Last commit](https://img.shields.io/github/last-commit/MeetAdalaja/React-TextUtils)](https://github.com/MeetAdalaja/React-TextUtils/commits/main)
+[![Repo size](https://img.shields.io/github/repo-size/MeetAdalaja/React-TextUtils)](https://github.com/MeetAdalaja/React-TextUtils)
+[![Open issues](https://img.shields.io/github/issues/MeetAdalaja/React-TextUtils)](https://github.com/MeetAdalaja/React-TextUtils/issues)
+![Built with](https://img.shields.io/badge/built%20with-React-61DAFB)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## ✨ Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 🔠 **Case tools:** UPPERCASE, lowercase, **Title Case**, **Sentence case**
+- 🧹 **Whitespace tools:** trim ends, remove extra spaces, collapse newlines
+- ✂️ **Editing:** clear text, copy to clipboard, select all
+- 📊 **Stats:** word & character counts, average reading time
+- 🎨 **Theme:** light/dark toggle (optional) with accessible contrast
+- ⌨️ **Keyboard-friendly:** focus states and shortcuts for common actions
+- 🚫 **No tracking:** runs entirely in the browser
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+> If your repo includes only a subset of these tools, keep what you use and remove the rest of this list.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🖥️ Live Demo
 
-### `npm run build`
+> _Add your deployment URL here (e.g., Vercel/Netlify/GitHub Pages) once deployed._
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🗂️ Project Structure (typical)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```text
+React-TextUtils/
+├─ public/                   # static assets
+├─ src/
+│  ├─ components/
+│  │  ├─ Navbar.jsx         # theme + navigation
+│  │  ├─ TextForm.jsx       # textarea + action buttons
+│  │  └─ Footer.jsx
+│  ├─ App.jsx               # routes/layout
+│  ├─ index.css
+│  └─ main.jsx / index.js   # React entry
+├─ package.json
+└─ README.md
+```
 
-### `npm run eject`
+> Your file names may differ (e.g., `App.js`, `index.js`). Adjust imports accordingly.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## ⚙️ Local Development
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 1) Clone & install
+```bash
+git clone https://github.com/MeetAdalaja/React-TextUtils.git
+cd React-TextUtils
+npm install   # or: yarn
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 2) Run the dev server
+Depending on your setup:
+```bash
+# Vite projects:
+npm run dev
 
-## Learn More
+# Create React App projects:
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 3) Build for production
+```bash
+npm run build
+# Vite preview (optional)
+npm run preview
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+> If unsure whether this is Vite or CRA, check `package.json` scripts.  
+> Vite typically has `dev`, `build`, `preview`. CRA uses `start`, `build`, `test`, `eject`.
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🔧 Configuration
 
-### Analyzing the Bundle Size
+- **Base title/brand:** edit `Navbar.jsx` (or the header component)
+- **Theme toggle:** ensure a body class or CSS variables flip on toggle
+- **Reading-time calc:** tweak words-per-minute (WPM) constant to your preference
+- **Clipboard API:** uses `navigator.clipboard.writeText` (requires secure context in some browsers)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 🧪 Testing (optional)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Add tests with your preferred stack:
+```bash
+# if using Vitest or Jest (example)
+npm run test
+```
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## ☁️ Deployment
 
-### Deployment
+**Vercel/Netlify (recommended)**
+1. Import your GitHub repo
+2. Build command: `npm run build`
+3. Output dir:
+   - Vite → `dist`
+   - CRA → `build`
+4. Set **Node** version if needed (Project Settings → Node)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+**GitHub Pages (Vite)**
+```json
+// vite.config.js
+export default { base: "/React-TextUtils/" }
+```
+Then:
+```bash
+npm run build
+# deploy /dist to gh-pages (use your preferred gh-pages tool)
+```
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🧭 Roadmap
+
+- [ ] Add **WPM selector** and per-locale word counting
+- [ ] Add **find & replace** and **deduplicate lines**
+- [ ] Add **PWA** support for offline use
+- [ ] Keyboard shortcuts for all actions
+- [ ] Unit tests for helpers
+
+---
+
+## 🐞 Troubleshooting
+
+- **Clipboard errors:** run over HTTPS or `localhost`; user interaction may be required
+- **Word count seems off:** normalize whitespace and split on `\s+`; consider locale rules
+- **Build fails:** delete `node_modules` and lockfile; `npm ci` or `npm install` again
+
+---
+
+## 📄 License
+
+Add a `LICENSE` file (e.g., MIT) if you want to open‑source this project.  
+Without a license, the default is “all rights reserved.”
+
+---
+
+## 🙏 Credits
+
+Built with **React**. Starter layout inspired by common TextUtils demos and refined for accessibility.
